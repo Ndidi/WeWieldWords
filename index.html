@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/typed.js@2.0.6/lib/typed.min.js"></script>
+    <script src="https://unpkg.com/fullpage.js@2.9.5/dist/jquery.fullpage.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/fullpage.js@2.9.5/dist/jquery.fullpage.min.css" />
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Cormorant');
+    </style>
+    <style>
+        html {
+            font-size: 16px;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        section {
+            height: 100vh;
+        }
+
+        #fullpage {
+            width: 80%
+        }
+
+        #typed {
+            font-size: 5rem;
+            font-family: 'Cormorant', cursive;
+        }
+
+        .typed-cursor {
+            font-size: 5rem;
+            opacity: 1;
+            font-weight: 100;
+            -webkit-animation: blink 0.7s infinite;
+            -moz-animation: blink 0.7s infinite;
+            -ms-animation: blink 0.7s infinite;
+            -o-animation: blink 0.7s infinite;
+            animation: blink 0.7s infinite;
+        }
+
+        #who {
+            display: none;
+            background-color: blue
+        }
+
+        #contact {
+            display: none;
+            background-color: red
+        }
+    </style>
+</head>
+
+<body>
+    <div id="fullpage">
+        <section>
+            <div id="wrapper" class="section">
+                <span id="typed"></span>
+            </div>
+        </section>
+        <section id="who" class="section"></section>
+        <section id="contact" class="section"></section>
+
+        <script>
+            $(document).ready(function() {
+                $('#fullpage').fullpage({
+                    sectionSelector: 'section'
+                })
+            });
+
+            var setupPage = () => {
+                document.getElementById("who").style.display = "flex"
+                document.getElementById("contact").style.display = "flex"
+            }
+
+            var typed3 = new Typed('#typed', {
+                strings: [
+                    "For most, Words are simply strings of letters, casually roped together to instill <i>some</i> order on their thread of thought.",
+                    "We're a little different.",
+                    "For us, Words, or to be more precise English Words, are both harsh taskmasters as well as obedient servants.",
+                    "They are among the cruelest weapons ever devised capable of crushing any foe, yet they are one of the greatest gifts we can offer those we care about.",
+                    "We Weild Words.^1000\n Through us, you can too.",
+                ],
+                typeSpeed: 40,
+                backSpeed: 10,
+                backDelay: 3000,
+                onComplete: function (self) { 
+                    setupPage();
+                }
+            });
+        </script>
+    </div>
+</body>
+
+</html>
